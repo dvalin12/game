@@ -1,0 +1,8 @@
+After ma import yung db run nyo ang query nato sa may SQL tab: 
+
+-------------------------------------------------
+
+SET GLOBAL event_scheduler = ON;
+
+---------------------------------------------------
+Yun lang thanks..

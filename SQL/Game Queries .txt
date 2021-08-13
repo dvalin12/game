@@ -1,0 +1,22 @@
+
+-----------CHECK FOR ACTIVE CREDENTIALS-------------------------------------------------------------------------------------------------
+
+SELECT * FROM tbl_session INNER JOIN tbl_acc_student ON tbl_session.section = tbl_acc_student.section WHERE tbl_acc_student.section = 1 AND tbl_acc_student.id = 2 AND tbl_session.active = 1
+
+------DEADLINE SCHEDULING------------------------------------------------------------------------------------------------
+
+
+CREATE EVENT disable_session_01
+ON SCHEDULE AT '2021-08-01 17:16:00'
+DO
+BEGIN
+
+  UPDATE tbl_session SET active = 0 WHERE id = 1;
+
+  UPDATE tbl_games SET active_sessions = active_sessions - 1;
+
+END;
+
+SHOW EVENTS FROM db_game;
+
+----------------------------------------------------------------------------------------------------------------------------
